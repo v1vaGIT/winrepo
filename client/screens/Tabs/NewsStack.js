@@ -43,9 +43,9 @@ const NewsStack = createNativeStackNavigator()
 
 export const News = () => {
   return(
-    <NewsStack.Navigator>
+    <NewsStack.Navigator screenOptions={{headerShown: false}}>
       <NewsStack.Screen name='newslist' component={NewsList} />
-      <NewsStack.Screen name='article' component={Article} options={{headerShown: false}}/>
+      <NewsStack.Screen name='article' component={Article} />
     </NewsStack.Navigator>
   )
 }

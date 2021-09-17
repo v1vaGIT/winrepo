@@ -3,7 +3,7 @@ import React from "react";
 import { View, Text } from 'react-native'
 import { Feedback } from "./Tabs/Feedback";
 import { MarketnCart } from "./Tabs/MarketnCart";
-import { Multimedia } from "./Tabs/Multimedia";
+import { MultimediaStack } from "./Tabs/MultimediaStack";
 import { News } from "./Tabs/NewsStack";
 import { Train } from "./Tabs/Train";
 
@@ -15,7 +15,7 @@ export const TabsScreens = () => {
       <Tabs.Screen name='train' component={Train}/>
       <Tabs.Screen name='news' component={News} />
       <Tabs.Screen name='market' component={MarketnCart} options={{headerShown: false}}/>
-      <Tabs.Screen name='multimedia' component={Multimedia} />
+      <Tabs.Screen name='multimedia' component={MultimediaStack} />
       <Tabs.Screen name='feedback' component={Feedback} />
     </Tabs.Navigator>
   )
