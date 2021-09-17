@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 import { Feedback } from "./Tabs/Feedback";
 import { MarketnCart } from "./Tabs/MarketnCart";
 import { Multimedia } from "./Tabs/Multimedia";
-import { News } from "./Tabs/News";
+import { News } from "./Tabs/NewsStack";
 import { Train } from "./Tabs/Train";
 
 const Tabs = createBottomTabNavigator()
