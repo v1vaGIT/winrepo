@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
-import { SwitchButton } from "../components/SwitchButton";
 
 const OnPassport = () => {
 	const [text, onChangeText] = useState('')
