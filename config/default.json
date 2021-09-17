@@ -1,0 +1,5 @@
+{
+    "port": 5000,
+    "jwtSecret": "jwtSecret",
+    "mongoUri": "mmongodb+srv://admin:admin@winrepo.byhkg.mongodb.net/app?retryWrites=true&w=majority"
+}
