@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Auth } from './screens/Auth'
+import { TabsScreens } from './screens/TabsScreens';
 
 const Stack = createNativeStackNavigator()
 
-const Navigation = () => {
+export const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name='auth' component={} />
+            <Stack.Navigator initialRouteName='tabs' screenOptions={{headerShown: false}}>
+                <Stack.Screen name='auth' component={Auth} />
+                <Stack.Screen name='tabs' component={TabsScreens} />
             </Stack.Navigator>
         </NavigationContainer>
     )
