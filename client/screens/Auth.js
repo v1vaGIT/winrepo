@@ -30,7 +30,7 @@ const OnPassport = ({ onSubmit }) => {
 				placeholder='0000'
 				value={text}
 		/>
-		<TouchableOpacity style={styles.confirm} onPress = {() => onSubmit}>
+		<TouchableOpacity style={styles.confirm} onPress = {onSubmit}>
 			<View>
 				<Text style={styles.ok}>
 					ПОДТВЕРДИТЬ
@@ -69,6 +69,7 @@ export const Auth = ({ navigation }) => {
 	const switchStyle2 = !firstButtonDisabled ? styles.switchNotActive : styles.switchActive
 
 	const onSubmit = async () => {
+		const res = await request('https://localhost:5000/api/auth/login', 'POST', {email: 'skorikivdanila@mail.ru', password: 'danila2'})
 		navigation.navigate('tabs')
 	}
 
