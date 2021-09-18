@@ -17,13 +17,21 @@ const NewsList = ({ navigation }) => {
       <TouchableOpacity onPress={() => navigation.navigate('article', {
         id: item.id
       })}
-      style={{ overflow: 'hidden'}}
+      style={{ overflow: 'hidden'} } style={styles.button}
       >
-        <View>
-          <Text>{item.title}</Text>
-          <Text>{item.date}</Text>
+        <View style={styles.News}>
+          <View style={styles.NewsHeader}>
+            <View style={styles.NewsTitle}>
+              <Text style={styles.TextTitle}>{item.title}</Text>
+            </View>
+            <View style={styles.NewsDate}>
+              <Text style={styles.TextDate}>{item.date}</Text>
+            </View>
+          </View>
+          <View style={styles.NewsBody}>
+            <Text numberOfLines={3} style={styles.TextText}>{item.text}</Text>
+          </View>
         </View>
-        <Text>{item.text}</Text>
       </TouchableOpacity>
     )
   }
@@ -51,7 +59,6 @@ const NewsList = ({ navigation }) => {
 
 const NewsStack = createNativeStackNavigator()
 
-
 export const News = () => {
   return(
     <NewsStack.Navigator screenOptions={{headerShown: false}}>
@@ -69,19 +76,20 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     height: '11%',
+    borderBottomWidth: 2
   },
   headerOne: {
     flex: 1, 
     alignItems: 'center',
   },
-  headerTwo: {
-      flex: 5,
-      alignItems: 'flex-start'
-  },
   logoHeader: {
     width: 30,
     height: 30,
     marginTop: '74%',
+  },
+  headerTwo: {
+      flex: 5,
+      alignItems: 'flex-start'
   },
   textHeader: {
     fontFamily: 'GothamPro-Medium',
@@ -89,7 +97,45 @@ const styles = StyleSheet.create({
     marginTop: '16%',
   },
   body: {
-    backgroundColor: 'red',
     height: '89%'
+  },
+  button: {
+    marginHorizontal: '2%',
+    marginVertical: '2%',
+    borderBottomWidth: 1,
+  },
+  TextTitle: {
+    fontFamily: 'GothamPro-Medium',
+    fontSize: 20,
+  },
+  TextDate: {
+    fontFamily: 'GothamPro-Medium',
+    fontSize: 15,
+  },
+  TextText: {
+    fontFamily: 'GothamPro-Light',
+    fontSize: 20,
+    textAlign:'justify',
+    padding: '2%'
+  },
+  News: {
+    flex: 1,
+  },
+  NewsHeader: {
+    flex: 1,
+    flexDirection: "row",
+    height: '15%',
+  },
+  NewsTitle: {
+    flex: 1, 
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    paddingLeft: '2%'
+  },
+  NewsDate: {
+    flex: -1,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    paddingRight: '2%'
   },
 });
