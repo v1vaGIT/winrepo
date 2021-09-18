@@ -5,19 +5,19 @@ export const multimedia_data = [
     options: [
       {
         id: '011',
-        title: 'Roflan Runner'
+        title: 'World of..'
       },
       {
         id: '012',
-        title: 'Angry Birds'
+        title: 'Angry Bird'
       },
       {
         id: '013',
-        title: 'Clash of Clans'
+        title: 'Clash of...'
       },
       {
         id: '014',
-        title: 'Genshin Impact'
+        title: 'Genshin ...'
       }
     ]
   },
@@ -31,7 +31,7 @@ export const multimedia_data = [
       },
       {
         id: '022',
-        title: 'Pulp Fiction'
+        title: 'Pulp Fi...'
       },
       {
         id: '023',
@@ -39,7 +39,7 @@ export const multimedia_data = [
       },
       {
         id: '024',
-        title: 'Requiem for a dream'
+        title: 'Requiem f...'
       }
     ]
   },
@@ -69,30 +69,30 @@ export const multimedia_data = [
       }
     ]
   },
-  {
-    id: '040',
-    title: 'Музыка',
-    options: [
-      {
-        id: '041',
-        title: 'Umbrella',
-        musicAuthor: 'Rhianna'
-      },
-      {
-        id: '042',
-        title: 'Ain`t no rest for the wicked',
-        musicAuthor: 'Cage the Elephant'
-      },
-      {
-        id: '043',
-        title: 'Blood Gets Thin',
-        musicAuthor: 'Pete & The Pirates'
-      },
-      {
-        id: '044',
-        title: 'good 4 u',
-        musicAuthor: 'Olivia Rodrigo'
-      }
-    ]
-  }
+  // {
+  //   id: '040',
+  //   title: 'Музыка',
+  //   options: [
+  //     {
+  //       id: '041',
+  //       title: 'Umbrella',
+  //       musicAuthor: 'Rhianna'
+  //     },
+  //     {
+  //       id: '042',
+  //       title: 'Ain`t no rest for the wicked',
+  //       musicAuthor: 'Cage the Elephant'
+  //     },
+  //     {
+  //       id: '043',
+  //       title: 'Blood Gets Thin',
+  //       musicAuthor: 'Pete & The Pirates'
+  //     },
+  //     {
+  //       id: '044',
+  //       title: 'good 4 u',
+  //       musicAuthor: 'Olivia Rodrigo'
+  //     }
+  //   ]
+  // }
 ]

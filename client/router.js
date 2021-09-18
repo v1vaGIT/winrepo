@@ -10,7 +10,7 @@ export const Navigation = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName='tabs' screenOptions={{headerShown: false}}>
-                <Stack.Screen name='auth' component={Auth} options={{headerShown: false}}/>
+                <Stack.Screen name='auth' component={Auth} options={{headerShown: true}}/>
                 <Stack.Screen name='tabs' component={TabsScreens} />
             </Stack.Navigator>
         </NavigationContainer>
