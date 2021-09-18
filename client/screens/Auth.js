@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, ProgressBarAndroidBase } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 async function request(url, method = 'GET', data = null) {
 	try {
@@ -30,21 +30,22 @@ const OnPassport = ({ navigation }) => {
 		}
 	}
 	return (
-		<View>
-			<Text style={{textAlign: 'center'}}>Последние 4 цифры номера паспорта</Text>
+		
+	<View>	
+		<Text style={{textAlign: 'center', fontFamily: 'GothamPro-Medium'}}>Последние 4 цифры номера паспорта</Text>
 			<TextInput style={styles.inputStyle}
 				onChangeText={onChangeText}
 				placeholder='00 00'
 				value={text}
-			/>
-			<TouchableOpacity style={styles.confirm} onPress = {() => onSubmit}>
-				<View>
-					<Text style={styles.label}>
-						ПОДТВЕРДИТЬ
-					</Text>
-				</View>
-			</TouchableOpacity>
-		</View>
+		/>
+		<TouchableOpacity style={styles.confirm} onPress = {() => onSubmit}>
+			<View>
+				<Text style={styles.label}>
+					ПОДТВЕРДИТЬ
+				</Text>
+			</View>
+		</TouchableOpacity>
+	</View>
 	)
 }
 
@@ -59,7 +60,7 @@ const OnTicket = ({ navigation }) => {
 	}
 	return (
 		<View>
-			<Text style={{textAlign: 'center'}}>Билет №</Text>
+			<Text style={{textAlign: 'center', fontFamily: 'GothamPro-Medium'}}>Билет №</Text>
 			<TextInput style={styles.inputStyle}
 				onChangeText={onChangeText}
 				placeholder='000000000000'
@@ -84,6 +85,7 @@ export const Auth = ({ navigation }) => {
 
 	if (firstButtonDisabled) {
 		return (
+			
 			<View style={{ justifyContent: 'center', flex: 1 }}>
 				<Text style = {styles.auth_text}>Доступный способ авторизации</Text>
 				<View style={styles.row}>
@@ -135,18 +137,22 @@ const styles = StyleSheet.create({
 	button: {
 		padding: 10,		
 		width: "100%",
-		textAlign: "center",
+		textAlign: "center",	
+		fontFamily: 'GothamPro-Medium',
 		flexDirection: 'row',
 		justifyContent: 'center',
 		
 	},
 	auth_text:{
-		textAlign:'center'
+		textAlign:'center',
+		fontFamily: 'GothamPro-Medium',
+
 	},
 	label:{
 		paddingTop: 5,
 		paddingBottom: 5,
 		textAlign: 'center',
+		fontFamily: 'GothamPro-Medium',
 	},
 	row:{
 		textAlign: 'center',
@@ -162,7 +168,39 @@ const styles = StyleSheet.create({
 		height: 42,
 		borderColor: "pink",
 		borderWidth: 1,
+		fontFamily: 'GothamPro-Medium',
 		textAlign: 'center'
 		},
+		//-------------------------Header-------------------------//
+		screen: {
+			flex: 1,
+		  },
+		  header: {
+			flex: 1,
+			flexDirection: "row",
+			height: '11%',
+		  },
+		  headerOne: {
+			flex: 1, 
+			alignItems: 'center',
+		  },
+		  headerTwo: {
+			  flex: 5,
+			  alignItems: 'flex-start'
+		  },
+		  logoHeader: {
+			width: 30,
+			height: 30,
+			marginTop: '74%',
+		  },
+		  textHeader: {
+			fontFamily: 'GothamPro-Medium',
+			fontSize: 19,
+			marginTop: '16%',
+		  },
+		  body: {
+			backgroundColor: 'red',
+			height: '89%'
+		  }
 
-})
+});
