@@ -12,8 +12,8 @@ const Tabs = createBottomTabNavigator()
 
 export const TabsScreens = () => {
   return (
-    <Tabs.Navigator screenOptions={{headerShown: false}}>
-      <Tabs.Screen name=' ' component={Train} options={{tabBarIcon: ({focused}) => (
+    <Tabs.Navigator initialRouteName='train' screenOptions={{headerShown: false}}>
+      <Tabs.Screen name='train' component={Train} options={{tabBarIcon: ({focused}) => (
         <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
           <Image 
             source={require('../assets/tabsIcons/icons8-поезд-80.png')} 

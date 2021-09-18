@@ -20,17 +20,9 @@ async function request(url, method = 'GET', data = null) {
 	}
 }
 
-const OnPassport = ({ navigation }) => {
+const OnPassport = ({ onSubmit }) => {
 	const [text, onChangeText] = useState('')
-	const onSubmit = async () => {
-		const res = await request('/api/auth/loginTickets', 'POST', { NumberOfTicket: text })
-		alert(res)
-		if (res) {
-			navigation.navigate('train')
-		}
-	}
 	return (
-		
 	<View>	
 		<Text style={{textAlign: 'center', fontFamily: 'GothamPro-Medium'}}>Последние 4 цифры номера паспорта</Text>
 			<TextInput style={styles.inputStyle}
@@ -49,15 +41,8 @@ const OnPassport = ({ navigation }) => {
 	)
 }
 
-const OnTicket = ({ navigation }) => {
+const OnTicket = ({ onSubmit }) => {
 	const [text, onChangeText] = useState('')
-	const onSubmit = async () => {
-		const res = await request('/api/auth/login', 'POST', { NumberOfTicket: text })
-		alert(res)
-		if (res) {
-			navigation.navigate('train')
-		}
-	}
 	return (
 		<View>
 			<Text style={{textAlign: 'center', fontFamily: 'GothamPro-Medium'}}>Билет №</Text>
@@ -66,7 +51,7 @@ const OnTicket = ({ navigation }) => {
 				placeholder='000000000000'
 				value={text}
 			/>
-			<TouchableOpacity style={styles.confirm} onPress = {() => onSubmit}>
+			<TouchableOpacity style={styles.confirm} onPress = {onSubmit}>
 				<View>
 					<Text style={styles.ok}>
 						ПОДТВЕРДИТЬ
@@ -82,6 +67,10 @@ export const Auth = ({ navigation }) => {
 
 	const switchStyle1 = firstButtonDisabled ? styles.switchNotActive : styles.switchActive
 	const switchStyle2 = !firstButtonDisabled ? styles.switchNotActive : styles.switchActive
+
+	const onSubmit = async () => {
+		navigation.navigate('tabs')
+	}
 
 	if (firstButtonDisabled) {
 		return (
@@ -104,7 +93,7 @@ export const Auth = ({ navigation }) => {
 						<Text style={styles.label}>По билету</Text>
 					</View>
 				</TouchableOpacity>
-				<OnTicket nav={navigation} />
+				<OnTicket onSubmit={onSubmit} />
 				</View>
 				
 			</View>
@@ -131,7 +120,7 @@ export const Auth = ({ navigation }) => {
 								<Text style={styles.label}>По билету</Text>
 							</View>
 						</TouchableOpacity>
-						<OnPassport />
+						<OnPassport onSubmit={onSubmit}/>
 					</View>
 			</View>
 		)
