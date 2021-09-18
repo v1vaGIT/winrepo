@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState} from "react";
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 export const Feedback = () => {
   const [mailInput, setMailInput] = useState('')
@@ -11,6 +11,14 @@ export const Feedback = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.header}>
+        <View style={styles.headerOne}>
+          <Image source={require('../../assets/news/Logo.jpg')} style={styles.logoHeader}/>
+        </View>
+        <View style={styles.headerTwo}>
+          <Text style={styles.textHeader}>Новости</Text>
+        </View>
+      </View>
       <View style={{ backgroundColor: '#707070', width: 80, height: 80, borderRadius:50, marginBottom: 5 }} />
       <Text style={{ fontSize: 26}}>Ефимов И. А.</Text>
       <TextInput 
@@ -18,7 +26,6 @@ export const Feedback = () => {
         text={mailInput}
         onChange={setMailInput}
         placeholder='Введите почту'
-        place
       />
       <TextInput 
         style={styles.commentInput}
@@ -65,5 +72,30 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     width: '80%'
+  },
+  header: {
+    display: 'flex',
+    position: 'absolute',
+    top: 0,
+    start: 0,
+    flexDirection: "row"
+  },
+  headerOne: {
+    flex: 1, 
+    alignItems: 'center',
+  },
+  headerTwo: {
+    flex: 5,
+    alignItems: 'flex-start'
+  },
+  logoHeader: {
+    width: 30,
+    height: 30,
+    marginTop: '74%',
+  },
+  textHeader: {
+    fontFamily: 'GothamPro-Medium',
+    fontSize: 19,
+    marginTop: '16%',
   }
 })
