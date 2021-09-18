@@ -63,15 +63,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#EA2A2A',
     paddingHorizontal: 40,
     paddingVertical: 10,
-    marginBottom: 30
+    marginBottom: 30,
+    borderRadius: 4
+
   },
   buttonText: {
-    fontSize: 18
+    fontSize: 18,
+    color: '#ffffff',
+    fontFamily: 'GothamPro-Medium',
   },
   appealText: {
     fontSize: 18,
     textAlign: 'center',
-    width: '80%'
+    width: '80%',
   },
   header: {
     display: 'flex',

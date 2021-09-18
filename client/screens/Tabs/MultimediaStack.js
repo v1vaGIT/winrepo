@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { View, Text, FlatList, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, FlatList, ScrollView, TouchableOpacity, StyleSheet, Image, Linking } from 'react-native';
 import { multimedia_data } from "../../data/multimedia_data";
 
 const MultimediaItemCard = ({ route }) => {
@@ -10,27 +10,7 @@ const MultimediaItemCard = ({ route }) => {
   )
 }
 const Multimedia = ({ navigation }) => {
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.mediaTitle}>{item.title}</Text>
-          <ScrollView horizontal>
-          {item.options.map(x => {
-            return (
-              <View style={styles.mediaBox}> 
-              <TouchableOpacity onPress={() => navigation.navigate('media-item-card', {
-                title: x.title
-              })}>
-                <Text style={styles.x_title}>{x.title}</Text>
-              </TouchableOpacity>
-              </View>
-            )
-          })}
-        </ScrollView>
-                  
-    </View>
-    )
-  }
+  
   return (
     <View>
       <View style={styles.header}>
@@ -41,11 +21,18 @@ const Multimedia = ({ navigation }) => {
           <Text style={styles.textHeader}>Мультимедиа</Text>
         </View>
       </View>
-      <FlatList 
-        data={multimedia_data}
-        renderItem={renderItem}
-        keyExtractor={x => x.id}
-      />
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => Linking.openURL("https://play.google.com/store/apps/category/GAME?hl=ru&gl=US")}>
+        <Image style={styles.img1} source={require('../../assets/media/games.jpg')}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => Linking.openURL("https://www.kinopoisk.ru/")}>
+        <Image style={styles.img1} source={require('../../assets/media/Kino.jpg')}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => Linking.openURL("https://www.litres.ru/")}>
+        <Image style={styles.img1} source={require('../../assets/media/Litres.jpg')}/>
+        </TouchableOpacity>
+
+      </View>
     </View>
   )
 }
@@ -88,21 +75,17 @@ const styles = StyleSheet.create({
   },
   //----------------------------------------------------
   container: {
-    marginTop: '20%'
+    
+    marginTop: '27%',
+    maxWidth: '100%',
+    backgroundColor:'#CCCCCC',
+    justifyContent:'center',
+        
   },
-  mediaTitle: {
-    fontSize: 20,
-    fontFamily: 'GothamPro-Medium',
-    textAlign:'center',
-    marginTop: '7%'
-  },
-  mediaBox: {
-    fontSize: 25
-  },
-  x_title: {
-    fontSize: 25,
-    padding: 10,
-    fontFamily: 'GothamPro-Medium'
-
+  img1: {
+    width: '100%',
+    height: 230,
+        
   }
+  
 })

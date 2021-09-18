@@ -13,8 +13,11 @@ const Market = ({ navigation }) => {
     return (
       <View style={styles.listItem}>
         <Text style={styles.productTitle}>{item.title}</Text>
-        <View >
+        <View>
           <Text style={styles.price}>{item.price}</Text>
+        </View>
+        <View>
+          
         </View>
     </View>
     )

@@ -9,13 +9,13 @@ export const market_data = [
     id: '002',
     title: 'Вода минеральная 0.5л',
     photoUrl: `../../assets/market/002.jpg`,
-    price: '60 р.'
+    price: '35 р.'
   },
   {
     id: '003',
     title: 'Вода минеральная 0.5л',
     photoUrl: `../../assets/market/003.jpg`,
-    price: '60 р.'
+    price: '30 р.'
   },
   {
     id: '004',
