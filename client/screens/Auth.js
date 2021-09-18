@@ -142,10 +142,12 @@ const styles = StyleSheet.create({
 	switchActive: {
 		backgroundColor: '#EA2A2A',
 		width: '50%',
+		borderRadius: 30
 	},
 	switchNotActive: {
 		backgroundColor: '#fff',
-		width: '50%'
+		width: '50%',
+		borderRadius: 30
 	},
 	ok: {
 		textAlign: 'center',
@@ -155,14 +157,15 @@ const styles = StyleSheet.create({
 		paddingBottom: 10
 	},
 
-	button: {
-		padding: 10,		
+	button: {		
 		width: "100%",
 		textAlign: "center",	
 		fontFamily: 'GothamPro-Medium',
 		flexDirection: 'row',
 		justifyContent: 'center',
-		
+		backgroundColor: '#fff',
+		borderRadius: 30,
+		marginBottom: 20
 	},
 	auth_text:{
 		textAlign:'center',
