@@ -12,7 +12,7 @@ const Tabs = createBottomTabNavigator()
 
 export const TabsScreens = () => {
   return (
-    <Tabs.Navigator>
+    <Tabs.Navigator screenOptions={{headerShown: false}}>
       <Tabs.Screen name=' ' component={Train} options={{tabBarIcon: ({focused}) => (
         <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
           <Image 
@@ -26,7 +26,7 @@ export const TabsScreens = () => {
           />
         </View>
       ),}}/>
-    <Tabs.Screen name='  ' component={News} options={{headerShown: false, tabBarIcon: ({focused}) => (
+    <Tabs.Screen name='  ' component={News} options={{tabBarIcon: ({focused}) => (
       <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
         <Image 
           source={require('.././assets/tabsIcons/icons8-новости-50.png')} 
@@ -39,7 +39,7 @@ export const TabsScreens = () => {
         />
       </View>
     ),}}/>
-    <Tabs.Screen name='   ' component={MarketnCart} options={{headerShown: false, tabBarIcon: ({focused}) => (
+    <Tabs.Screen name='   ' component={MarketnCart} options={{tabBarIcon: ({focused}) => (
       <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
         <Image 
           source={require('.././assets/tabsIcons/icons8-продуктовый-магазин-50.png')} 
