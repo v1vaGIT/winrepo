@@ -1,8 +1,34 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
 
-const OnPassport = () => {
+async function request(url, method = 'GET', data = null) {
+	try {
+		const headers = {}
+		let body
+		if (data) {
+			headers['Content-Type'] = 'application/json'
+			body = JSON.stringify(data)
+		}
+		const res = await fetch(url, {
+			method,
+			headers,
+			body
+		})
+		return await res.json()
+	} catch(e) {
+
+	}
+}
+
+const OnPassport = ({ navigation }) => {
 	const [text, onChangeText] = useState('')
+	const onSubmit = async () => {
+		const res = await request('/api/auth/loginTickets', 'POST', { NumberOfTicket: text })
+		alert(res)
+		if (res) {
+			navigation.navigate('train')
+		}
+	}
 	return (
 		<View>
 			<Text>Последние 4 цифры номера паспорта</Text>
@@ -11,14 +37,23 @@ const OnPassport = () => {
 				placeholder='00 00'
 				value={text}
 			/>
+			<Button  
+				title='Подтвердить'
+				color='#EA2A2A'
+				onPress={onSubmit}
+			/>
 		</View>
 	)
 }
 
 const OnTicket = ({ navigation }) => {
 	const [text, onChangeText] = useState('')
-	const onSubmit = () => {
-		navigation.navigate('tabs')
+	const onSubmit = async () => {
+		const res = await request('/api/auth/login', 'POST', { NumberOfTicket: text })
+		alert(res)
+		if (res) {
+			navigation.navigate('train')
+		}
 	}
 	return (
 		<View>

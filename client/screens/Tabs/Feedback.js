@@ -11,8 +11,8 @@ export const Feedback = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <View style={{ backgroundColor: '#707070', width: 60, height: 60, borderRadius:'50%', marginBottom: 5 }} />
-      <Text>Иванов И. И.</Text> {/* получаем данные с сервера*/}
+      <View style={{ backgroundColor: '#707070', width: 60, height: 60, borderRadius:50, marginBottom: 5 }} />
+      <Text>Ефимов И. А.</Text>
       <TextInput 
         text={mailInput}
         onChange={setMailInput}
