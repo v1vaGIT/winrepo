@@ -16,7 +16,7 @@ export const TabsScreens = () => {
       <Tabs.Screen name=' ' component={Train} options={{tabBarIcon: ({focused}) => (
         <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
           <Image 
-            source={require('.././assets/tabsIcons/icons8-поезд-80.png')} 
+            source={require('../assets/tabsIcons/icons8-поезд-80.png')} 
             resizeMode = 'contain'
             style={{
               width: 30,
@@ -29,7 +29,7 @@ export const TabsScreens = () => {
     <Tabs.Screen name='  ' component={News} options={{tabBarIcon: ({focused}) => (
       <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
         <Image 
-          source={require('.././assets/tabsIcons/icons8-новости-50.png')} 
+          source={require('../assets/tabsIcons/icons8-новости-50.png')} 
           resizeMode = 'contain'
           style={{
             width: 30,
@@ -42,7 +42,7 @@ export const TabsScreens = () => {
     <Tabs.Screen name='   ' component={MarketnCart} options={{tabBarIcon: ({focused}) => (
       <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
         <Image 
-          source={require('.././assets/tabsIcons/icons8-продуктовый-магазин-50.png')} 
+          source={require('../assets/tabsIcons/icons8-продуктовый-магазин-50.png')} 
           resizeMode = 'contain'
           style={{
             width: 30,
@@ -55,7 +55,7 @@ export const TabsScreens = () => {
     <Tabs.Screen name='     ' component={MultimediaStack} options={{tabBarIcon: ({focused}) => (
       <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
         <Image 
-          source={require('.././assets/tabsIcons/icons8-видео-плейлист-50.png')} 
+          source={require('../assets/tabsIcons/icons8-видео-плейлист-50.png')} 
           resizeMode = 'contain'
           style={{
             width: 30,
@@ -68,7 +68,7 @@ export const TabsScreens = () => {
     <Tabs.Screen name='      ' component={Feedback} options={{tabBarIcon: ({focused}) => (
       <View style={{alignItems:'center', justifyContent:'center', top: 7}}>
         <Image 
-          source={require('.././assets/tabsIcons/icons8-комментарии-50.png')} 
+          source={require('../assets/tabsIcons/icons8-комментарии-50.png')} 
           resizeMode = 'contain'
           style={{
             width: 30,
