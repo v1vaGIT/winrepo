@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { news_data } from "../../data/news_data";
 
 const Article = ({ route }) => {
@@ -29,17 +29,28 @@ const NewsList = ({ navigation }) => {
   }
 
   return (
-    <View>
-      <FlatList 
-        data={news_data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+    <View style={styles.screen}>
+      <View style={styles.header}>
+        <View style={styles.headerOne}>
+          <Image source={require('../../assets/news/Logo.jpg')} style={styles.logoHeader}/>
+        </View>
+        <View style={styles.headerTwo}>
+          <Text style={styles.textHeader}>Новости</Text>
+        </View>
+      </View>
+      <View style={styles.body}>
+        <FlatList 
+          data={news_data}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
     </View>
   )
 }
 
 const NewsStack = createNativeStackNavigator()
+
 
 export const News = () => {
   return(
@@ -49,3 +60,36 @@ export const News = () => {
     </NewsStack.Navigator>
   )
 }
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
+  header: {
+    flex: 1,
+    flexDirection: "row",
+    height: '11%',
+  },
+  headerOne: {
+    flex: 1, 
+    alignItems: 'center',
+  },
+  headerTwo: {
+      flex: 5,
+      alignItems: 'flex-start'
+  },
+  logoHeader: {
+    width: 30,
+    height: 30,
+    marginTop: '74%',
+  },
+  textHeader: {
+    fontFamily: 'GothamPro-Medium',
+    fontSize: 19,
+    marginTop: '16%',
+  },
+  body: {
+    backgroundColor: 'red',
+    height: '89%'
+  },
+});

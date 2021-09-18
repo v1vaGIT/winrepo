@@ -13,7 +13,7 @@ export const TabsScreens = () => {
   return (
     <Tabs.Navigator>
       <Tabs.Screen name='train' component={Train}/>
-      <Tabs.Screen name='news' component={News} />
+      <Tabs.Screen name='news' component={News} options={{headerShown: false}}/>
       <Tabs.Screen name='market' component={MarketnCart} options={{headerShown: false}}/>
       <Tabs.Screen name='multimedia' component={MultimediaStack} />
       <Tabs.Screen name='feedback' component={Feedback} />

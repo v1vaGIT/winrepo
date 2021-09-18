@@ -32,6 +32,7 @@ router.post('/loginPassport', async (req, res) => {
                 objectId: candidate._id,
                 NumberOfTicket: candidate.NumberOfTicket,
                 user: candidate.user,
+                passport: candidate.passport
             })
             res.status(200).json({api: api})
         } else {
