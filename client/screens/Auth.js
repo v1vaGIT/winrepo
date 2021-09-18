@@ -41,8 +41,12 @@ const OnPassport = () => {
 
 const OnTicket = ({ navigation }) => {
 	const [text, onChangeText] = useState('')
-	const onSubmit = () => {
-		navigation.navigate('train')
+	const onSubmit = async () => {
+		const res = await request('/api/auth/login', 'POST', { NumberOfTicket: text })
+		alert(res)
+		if (res) {
+			navigation.navigate('train')
+		}
 	}
 	return (
 		<View>
