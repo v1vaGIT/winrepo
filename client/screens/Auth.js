@@ -20,8 +20,15 @@ async function request(url, method = 'GET', data = null) {
 	}
 }
 
-const OnPassport = () => {
+const OnPassport = ({ navigation }) => {
 	const [text, onChangeText] = useState('')
+	const onSubmit = async () => {
+		const res = await request('/api/auth/loginTickets', 'POST', { NumberOfTicket: text })
+		alert(res)
+		if (res) {
+			navigation.navigate('train')
+		}
+	}
 	return (
 		<View>
 			<Text>Последние 4 цифры номера паспорта</Text>
