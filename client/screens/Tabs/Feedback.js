@@ -6,7 +6,7 @@ export const Feedback = () => {
   const [commentInput, setCommentInput] = useState('')
 
   const onSubmit = () => {
-
+    alert('Вы молодец!')
   }
 
   return (
