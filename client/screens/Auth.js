@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 async function request(url, method = 'GET', data = null) {
 	try {
@@ -30,19 +30,22 @@ const OnPassport = ({ navigation }) => {
 		}
 	}
 	return (
-		<View>
-			<Text>Последние 4 цифры номера паспорта</Text>
-			<TextInput 
+		
+	<View>	
+		<Text style={{textAlign: 'center', fontFamily: 'GothamPro-Medium'}}>Последние 4 цифры номера паспорта</Text>
+			<TextInput style={styles.inputStyle}
 				onChangeText={onChangeText}
-				placeholder='00 00'
+				placeholder='0000'
 				value={text}
-			/>
-			<Button  
-				title='Подтвердить'
-				color='#EA2A2A'
-				onPress={onSubmit}
-			/>
-		</View>
+		/>
+		<TouchableOpacity style={styles.confirm} onPress = {() => onSubmit}>
+			<View>
+				<Text style={styles.ok}>
+					ПОДТВЕРДИТЬ
+				</Text>
+			</View>
+		</TouchableOpacity>
+	</View>
 	)
 }
 
@@ -57,17 +60,19 @@ const OnTicket = ({ navigation }) => {
 	}
 	return (
 		<View>
-			<Text>Билет №</Text>
-			<TextInput 
+			<Text style={{textAlign: 'center', fontFamily: 'GothamPro-Medium'}}>Билет №</Text>
+			<TextInput style={styles.inputStyle}
 				onChangeText={onChangeText}
 				placeholder='000000000000'
 				value={text}
 			/>
-			<Button 
-				title='Подтвердить'
-				color='#EA2A2A'
-				onPress={onSubmit}
-			/>
+			<TouchableOpacity style={styles.confirm} onPress = {() => onSubmit}>
+				<View>
+					<Text style={styles.ok}>
+						ПОДТВЕРДИТЬ
+					</Text>
+				</View>
+			</TouchableOpacity>
 		</View>
 	)
 }
@@ -80,33 +85,54 @@ export const Auth = ({ navigation }) => {
 
 	if (firstButtonDisabled) {
 		return (
-			<View>
-				<Text>Доступный способ авторизации</Text>
-				<TouchableOpacity onPress={() => setFirstButtonDisabled(!firstButtonDisabled)}>
+			<View style={{ justifyContent: 'center', flex: 1 }}>
+				<View style={styles.header}>
+        <View style={styles.headerOne}>
+          <Image source={require('../assets/news/Logo.jpg')} style={styles.logoHeader}/>
+        </View>
+        <View style={styles.headerTwo}>
+          <Text style={styles.textHeader}>ПОПУТЧИК</Text>
+        </View>
+      </View>
+				<Text style = {styles.auth_text}>Доступный способ авторизации</Text>
+				<View style={styles.row}>
+				<TouchableOpacity style={styles.button} onPress={() => setFirstButtonDisabled(!firstButtonDisabled)}>
 					<View style={switchStyle1}>
-						<Text>По паспорту</Text>
+						<Text style={styles.label}>По паспорту</Text>
 					</View>
 					<View style={switchStyle2}>
-						<Text>По билету</Text>
+						<Text style={styles.label}>По билету</Text>
 					</View>
 				</TouchableOpacity>
 				<OnTicket nav={navigation} />
+				</View>
+				
 			</View>
 		)
 	}
 	else {
 		return (
-			<View>
-				<Text>Доступный способ авторизации</Text>
-				<TouchableOpacity onPress={() => setFirstButtonDisabled(!firstButtonDisabled)}>
-					<View style={switchStyle1}>
-						<Text>По паспорту</Text>
+			<View style={{ justifyContent: 'center', flex: 1 }}>
+				<View style={styles.header}>
+        <View style={styles.headerOne}>
+          <Image source={require('../assets/news/Logo.jpg')} style={styles.logoHeader}/>
+        </View>
+        <View style={styles.headerTwo}>
+          <Text style={styles.textHeader}>ПОПУТЧИК</Text>
+        </View>
+      </View>
+				<Text style = {styles.auth_text}>Доступный способ авторизации</Text>
+					<View style={styles.row}>
+						<TouchableOpacity style={styles.button} onPress={() => setFirstButtonDisabled(!firstButtonDisabled)}>
+							<View style={switchStyle1}>
+								<Text style={styles.label}>По паспорту</Text>
+							</View>
+							<View style={switchStyle2}>
+								<Text style={styles.label}>По билету</Text>
+							</View>
+						</TouchableOpacity>
+						<OnPassport />
 					</View>
-					<View style={switchStyle2}>
-						<Text>По билету</Text>
-					</View>
-				</TouchableOpacity>
-				<OnPassport />
 			</View>
 		)
 	}
@@ -114,9 +140,88 @@ export const Auth = ({ navigation }) => {
 
 const styles = StyleSheet.create({
 	switchActive: {
-		backgroundColor: '#EA2A2A'
+		backgroundColor: '#EA2A2A',
+		width: '50%',
 	},
 	switchNotActive: {
 		backgroundColor: '#fff',
-	}
-})
+		width: '50%'
+	},
+	ok: {
+		textAlign: 'center',
+		fontFamily: 'GothamPro-Medium',
+		fontSize: 20,
+		color: '#fff',
+		paddingBottom: 10
+	},
+
+	button: {
+		padding: 10,		
+		width: "100%",
+		textAlign: "center",	
+		fontFamily: 'GothamPro-Medium',
+		flexDirection: 'row',
+		justifyContent: 'center',
+		
+	},
+	auth_text:{
+		textAlign:'center',
+		fontFamily: 'GothamPro-Medium',
+		fontSize: 28,
+		marginBottom: 50
+		
+
+	},
+	label:{
+		paddingTop: 5,
+		paddingBottom: 7,
+		textAlign: 'center',
+		fontFamily: 'GothamPro-Medium',
+		color: '#000',
+		fontSize: 20
+	},
+	row:{
+		textAlign: 'center',
+		padding: 8
+	},
+	confirm: {
+		paddingTop: 10,
+		borderRadius: 5,
+		backgroundColor: '#EA2A2A'
+	},
+	inputStyle: {
+		margin: 16,
+		height: 42,
+		borderColor: "pink",
+		borderWidth: 1,
+		fontFamily: 'GothamPro-Medium',
+		textAlign: 'center'
+		},
+		//-------------------------Header-------------------------//
+		header: {
+			display: 'flex',
+			position: 'absolute',
+			top: 0,
+			start: 0,
+			flexDirection: "row"
+		  },
+		  headerOne: {
+			flex: 1, 
+			alignItems: 'center',
+		  },
+		  headerTwo: {
+			flex: 5,
+			alignItems: 'flex-start'
+		  },
+		  logoHeader: {
+			width: 30,
+			height: 30,
+			marginTop: '74%',
+		  },
+		  textHeader: {
+			fontFamily: 'GothamPro-Medium',
+			fontSize: 20,
+			marginTop: '16%',
+		  }
+
+});
