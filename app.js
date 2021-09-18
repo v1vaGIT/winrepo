@@ -13,7 +13,7 @@ app.use(require('cors')())
 // Подключение роутов
 app.use('/api/auth', require('./routes/authRoutes'))
 
-const PORT = config.get('port') || 19006
+const PORT = config.get('port') || 5000
 
 async function start() {
     try {
