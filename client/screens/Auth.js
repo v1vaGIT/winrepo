@@ -1,6 +1,25 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
 
+async function request(url, method = 'GET', data = null) {
+	try {
+		const headers = {}
+		let body
+		if (data) {
+			headers['Content-Type'] = 'application/json'
+			body = JSON.stringify(data)
+		}
+		const res = await fetch(url, {
+			method,
+			headers,
+			body
+		})
+		return await res.json()
+	} catch(e) {
+
+	}
+}
+
 const OnPassport = () => {
 	const [text, onChangeText] = useState('')
 	return (
@@ -11,6 +30,11 @@ const OnPassport = () => {
 				placeholder='00 00'
 				value={text}
 			/>
+			<Button  
+				title='Подтвердить'
+				color='#EA2A2A'
+				onPress={onSubmit}
+			/>
 		</View>
 	)
 }
@@ -18,7 +42,7 @@ const OnPassport = () => {
 const OnTicket = ({ navigation }) => {
 	const [text, onChangeText] = useState('')
 	const onSubmit = () => {
-		navigation.navigate('tabs')
+		navigation.navigate('train')
 	}
 	return (
 		<View>
