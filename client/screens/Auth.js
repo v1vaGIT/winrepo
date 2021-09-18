@@ -35,12 +35,12 @@ const OnPassport = ({ navigation }) => {
 		<Text style={{textAlign: 'center', fontFamily: 'GothamPro-Medium'}}>Последние 4 цифры номера паспорта</Text>
 			<TextInput style={styles.inputStyle}
 				onChangeText={onChangeText}
-				placeholder='00 00'
+				placeholder='0000'
 				value={text}
 		/>
 		<TouchableOpacity style={styles.confirm} onPress = {() => onSubmit}>
 			<View>
-				<Text style={styles.label}>
+				<Text style={styles.ok}>
 					ПОДТВЕРДИТЬ
 				</Text>
 			</View>
@@ -68,7 +68,7 @@ const OnTicket = ({ navigation }) => {
 			/>
 			<TouchableOpacity style={styles.confirm} onPress = {() => onSubmit}>
 				<View>
-					<Text style={styles.label}>
+					<Text style={styles.ok}>
 						ПОДТВЕРДИТЬ
 					</Text>
 				</View>
@@ -85,8 +85,15 @@ export const Auth = ({ navigation }) => {
 
 	if (firstButtonDisabled) {
 		return (
-			
 			<View style={{ justifyContent: 'center', flex: 1 }}>
+				<View style={styles.header}>
+        <View style={styles.headerOne}>
+          <Image source={require('../assets/news/Logo.jpg')} style={styles.logoHeader}/>
+        </View>
+        <View style={styles.headerTwo}>
+          <Text style={styles.textHeader}>ПОПУТЧИК</Text>
+        </View>
+      </View>
 				<Text style = {styles.auth_text}>Доступный способ авторизации</Text>
 				<View style={styles.row}>
 				<TouchableOpacity style={styles.button} onPress={() => setFirstButtonDisabled(!firstButtonDisabled)}>
@@ -106,6 +113,14 @@ export const Auth = ({ navigation }) => {
 	else {
 		return (
 			<View style={{ justifyContent: 'center', flex: 1 }}>
+				<View style={styles.header}>
+        <View style={styles.headerOne}>
+          <Image source={require('../assets/news/Logo.jpg')} style={styles.logoHeader}/>
+        </View>
+        <View style={styles.headerTwo}>
+          <Text style={styles.textHeader}>ПОПУТЧИК</Text>
+        </View>
+      </View>
 				<Text style = {styles.auth_text}>Доступный способ авторизации</Text>
 					<View style={styles.row}>
 						<TouchableOpacity style={styles.button} onPress={() => setFirstButtonDisabled(!firstButtonDisabled)}>
@@ -126,13 +141,19 @@ export const Auth = ({ navigation }) => {
 const styles = StyleSheet.create({
 	switchActive: {
 		backgroundColor: '#EA2A2A',
-		width: '50%'
+		width: '50%',
 	},
 	switchNotActive: {
 		backgroundColor: '#fff',
 		width: '50%'
 	},
-	
+	ok: {
+		textAlign: 'center',
+		fontFamily: 'GothamPro-Medium',
+		fontSize: 20,
+		color: '#fff',
+		paddingBottom: 10
+	},
 
 	button: {
 		padding: 10,		
@@ -146,13 +167,18 @@ const styles = StyleSheet.create({
 	auth_text:{
 		textAlign:'center',
 		fontFamily: 'GothamPro-Medium',
+		fontSize: 28,
+		marginBottom: 50
+		
 
 	},
 	label:{
 		paddingTop: 5,
-		paddingBottom: 5,
+		paddingBottom: 7,
 		textAlign: 'center',
 		fontFamily: 'GothamPro-Medium',
+		color: '#000',
+		fontSize: 20
 	},
 	row:{
 		textAlign: 'center',
@@ -172,21 +198,20 @@ const styles = StyleSheet.create({
 		textAlign: 'center'
 		},
 		//-------------------------Header-------------------------//
-		screen: {
-			flex: 1,
-		  },
-		  header: {
-			flex: 1,
-			flexDirection: "row",
-			height: '11%',
+		header: {
+			display: 'flex',
+			position: 'absolute',
+			top: 0,
+			start: 0,
+			flexDirection: "row"
 		  },
 		  headerOne: {
 			flex: 1, 
 			alignItems: 'center',
 		  },
 		  headerTwo: {
-			  flex: 5,
-			  alignItems: 'flex-start'
+			flex: 5,
+			alignItems: 'flex-start'
 		  },
 		  logoHeader: {
 			width: 30,
@@ -195,12 +220,8 @@ const styles = StyleSheet.create({
 		  },
 		  textHeader: {
 			fontFamily: 'GothamPro-Medium',
-			fontSize: 19,
+			fontSize: 20,
 			marginTop: '16%',
-		  },
-		  body: {
-			backgroundColor: 'red',
-			height: '89%'
 		  }
 
 });
