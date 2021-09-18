@@ -19,7 +19,7 @@ export const Feedback = () => {
           <Text style={styles.textHeader}>Обратная связь</Text>
         </View>
       </View>
-      <View style={{ backgroundColor: '#707070', width: 80, height: 80, borderRadius:50, marginBottom: 5 }} />
+      <Image source={require('../../assets/avatar.png')} style={{ width: 80, height: 80, borderRadius:50, marginBottom: 5 }} />
       <Text style={{ fontSize: 26}}>Ефимов И. А.</Text>
       <TextInput 
         style={styles.mailInput}
