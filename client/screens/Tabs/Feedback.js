@@ -16,7 +16,7 @@ export const Feedback = () => {
           <Image source={require('../../assets/news/Logo.jpg')} style={styles.logoHeader}/>
         </View>
         <View style={styles.headerTwo}>
-          <Text style={styles.textHeader}>Новости</Text>
+          <Text style={styles.textHeader}>Обратная связь</Text>
         </View>
       </View>
       <View style={{ backgroundColor: '#707070', width: 80, height: 80, borderRadius:50, marginBottom: 5 }} />
