@@ -7,7 +7,19 @@ const Article = ({ route }) => {
   const { id } = route.params
   const article = news_data.find(item => item.id === id)
   return (
-    <Text>{article.title}</Text>
+    <View style={styles.News}>
+      <View style={styles.header}>
+        <View style={styles.headerOne}>
+          <Image source={require('../../assets/news/Logo.jpg')} style={styles.logoHeader}/>
+        </View>
+        <View style={styles.headerTwo}>
+          <Text style={styles.textHeader1}>{article.title}</Text>
+        </View>
+      </View>
+      <View style={styles.body}>
+        <Text style={styles.TextText1}>{article.text}</Text>
+      </View>
+    </View>
   )
 }
 
@@ -73,31 +85,38 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flex: 1,
-    flexDirection: "row",
-    height: '11%',
-    borderBottomWidth: 2
+    display: 'flex',
+    position: 'absolute',
+    top: 0,
+    start: 0,
+    flexDirection: "row"
   },
   headerOne: {
     flex: 1, 
     alignItems: 'center',
+  },
+  headerTwo: {
+    flex: 5,
+    alignItems: 'flex-start'
   },
   logoHeader: {
     width: 30,
     height: 30,
     marginTop: '74%',
   },
-  headerTwo: {
-      flex: 5,
-      alignItems: 'flex-start'
-  },
   textHeader: {
     fontFamily: 'GothamPro-Medium',
     fontSize: 19,
     marginTop: '16%',
   },
+  textHeader1: {
+    fontFamily: 'GothamPro-Medium',
+    fontSize: 17,
+    marginTop: '16%',
+  },
   body: {
-    height: '89%'
+    height: '89%',
+    marginTop: '23%'
   },
   button: {
     marginHorizontal: '2%',
@@ -118,6 +137,13 @@ const styles = StyleSheet.create({
     textAlign:'justify',
     padding: '2%'
   },
+  TextText1: {
+    fontFamily: 'GothamPro-Light',
+    fontSize: 20,
+    textAlign:'justify',
+    paddingHorizontal: '5%',
+    paddingTop: '2%',
+  },
   News: {
     flex: 1,
   },
@@ -137,5 +163,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center',
     paddingRight: '2%'
+  },
+  asdf: {
+backgroundColor: 'blue',
   },
 });

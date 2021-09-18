@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "client": "cd client && expo start",
+    "dev": "concurrently \"nodemon app.js\" \"npm run client\""
   },
   "keywords": [
     "MongoDB",
